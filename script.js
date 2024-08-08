@@ -54,3 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     requestAnimationFrame(pollGamepads);
 });
+
+document.getElementById('intensity').addEventListener('input', function() {
+    document.getElementById('displayValue').textContent = this.value;
+});
+
+// Toggle between light and dark theme
+document.getElementById('themeToggle').addEventListener('click', function() {
+    document.body.classList.toggle('dark');
+    document.body.classList.toggle('light');
+});
+
+// Simulate controller connection status change
+let controllerConnected = false;
+document.getElementById('controllerStatus').addEventListener('click', function() {
+    controllerConnected = !controllerConnected;
+    this.textContent = controllerConnected ? 'Controller connected' : 'Controller not connected';
+    this.classList.toggle('connected', controllerConnected);
+});
